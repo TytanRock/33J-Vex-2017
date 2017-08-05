@@ -31,8 +31,8 @@ enum chainPositions
 
 enum mobilePositions
 {
-	mobileGround = 0,
-	up = 1,
+	mobileGround = 101,
+	up = 150,
 };
 
 enum armState
@@ -57,6 +57,12 @@ enum armState
 float convertAngle(int sensor, float m, float b)
 {
 		return sensor * m + b;
+}
+
+float ramp(float current, float last)
+{
+	if(current - last > 0)return last + 0.1;
+	else return last - 0.02;
 }
 
 #endif
